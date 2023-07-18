@@ -1,0 +1,148 @@
+{
+  "page": 5,
+  "per_page": 10,
+  "total": 200,
+  "total_pages": 20,
+  "data": [
+    {
+      "university": "KAIST - Korea Advanced Institute of Science & Technology",
+      "rank_display": "41",
+      "score": 79.1,
+      "type": "Public",
+      "student_faculty_ratio": 8,
+      "international_students": "869",
+      "faculty_count": "1,307",
+      "location": {
+        "city": "Daejeon",
+        "country": "South Korea",
+        "region": "Asia"
+      }
+    },
+    {
+      "university": "New York University (NYU)",
+      "rank_display": "42",
+      "score": 78.9,
+      "type": "Private",
+      "student_faculty_ratio": 6,
+      "international_students": "16,218",
+      "faculty_count": "7,874",
+      "location": {
+        "city": "New York City",
+        "country": "United States",
+        "region": "North America"
+      }
+    },
+    {
+      "university": "The University of New South Wales (UNSW Sydney)",
+      "rank_display": "43",
+      "score": 77.7,
+      "type": "Public",
+      "student_faculty_ratio": 14,
+      "international_students": "21,603",
+      "faculty_count": "3,219",
+      "location": {
+        "city": "Sydney",
+        "country": "Australia",
+        "region": "Oceania"
+      }
+    },
+    {
+      "university": "Université PSL",
+      "rank_display": "44",
+      "score": 77.6,
+      "type": "Public",
+      "student_faculty_ratio": 5,
+      "international_students": "4,922",
+      "faculty_count": "3,914",
+      "location": {
+        "city": "",
+        "country": "France",
+        "region": "Europe"
+      }
+    },
+    {
+      "university": "Zhejiang University",
+      "rank_display": "45",
+      "score": 77.4,
+      "type": "Public",
+      "student_faculty_ratio": 7,
+      "international_students": "9,177",
+      "faculty_count": "6,065",
+      "location": {
+        "city": "Hangzhou",
+        "country": "China (Mainland)",
+        "region": "Asia"
+      }
+    },
+    {
+      "university": "University of British Columbia",
+      "rank_display": "46",
+      "score": 77.1,
+      "type": "Public",
+      "student_faculty_ratio": 9,
+      "international_students": "15,399",
+      "faculty_count": "6,201",
+      "location": {
+        "city": "Vancouver",
+        "country": "Canada",
+        "region": "North America"
+      }
+    },
+    {
+      "university": "The University of Queensland",
+      "rank_display": "47",
+      "score": 76.6,
+      "type": "Public",
+      "student_faculty_ratio": 12,
+      "international_students": "22,241",
+      "faculty_count": "3,513",
+      "location": {
+        "city": "Brisbane City",
+        "country": "Australia",
+        "region": "Oceania"
+      }
+    },
+    {
+      "university": "University of California, San Diego (UCSD)",
+      "rank_display": "48",
+      "score": 76.1,
+      "type": "Public",
+      "student_faculty_ratio": 8,
+      "international_students": "8,567",
+      "faculty_count": "4,545",
+      "location": {
+        "city": "San Diego",
+        "country": "United States",
+        "region": "North America"
+      }
+    },
+    {
+      "university": "Institut Polytechnique de Paris",
+      "rank_display": "49",
+      "score": 75.9,
+      "type": "Public",
+      "student_faculty_ratio": 6,
+      "international_students": "2,413",
+      "faculty_count": "1,057",
+      "location": {
+        "city": "Palaiseau Cedex",
+        "country": "France",
+        "region": "Europe"
+      }
+    },
+    {
+      "university": "The London School of Economics and Political Science (LSE)",
+      "rank_display": "49",
+      "score": 75.8,
+      "type": "Public",
+      "student_faculty_ratio": 10,
+      "international_students": "8,274",
+      "faculty_count": "1,172",
+      "location": {
+        "city": "London",
+        "country": "United Kingdom",
+        "region": "Europe"
+      }
+    }
+  ]
+}
