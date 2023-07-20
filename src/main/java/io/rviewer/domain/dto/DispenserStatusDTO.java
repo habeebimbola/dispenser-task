@@ -1,7 +1,8 @@
-package io.rviewer.domain;
+package io.rviewer.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.rviewer.domain.Status;
 
 @JsonSerialize
 public class DispenserStatusDTO {
@@ -10,7 +11,7 @@ public class DispenserStatusDTO {
     private Double floatVolume;
 
     @JsonProperty("status")
-    private Status Status;
+    private io.rviewer.domain.Status Status;
 
     @JsonProperty("updated_at")
     private String updatedTime;
