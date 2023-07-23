@@ -2,6 +2,7 @@ package io.rviewer.rest.validator;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DispenserValidator {
@@ -14,6 +15,7 @@ public class DispenserValidator {
 
     public DispenserValidator(String errorMessage) {
         this.errorMessage = errorMessage;
+        this.errorMessages = new ArrayList<>();
     }
 
     public List<String> getErrorMessages() {
@@ -23,5 +25,9 @@ public class DispenserValidator {
     public void addError(String errorMessage)
     {
         this.errorMessages.add(errorMessage);
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 }

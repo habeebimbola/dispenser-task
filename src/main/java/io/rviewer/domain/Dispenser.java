@@ -2,6 +2,9 @@ package io.rviewer.domain;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity()
@@ -9,7 +12,7 @@ import java.util.UUID;
 public class Dispenser {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "UUID")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
@@ -20,6 +23,12 @@ public class Dispenser {
     @Column(name = "STATUS")
     private Status status;
 
+    @Column(name = "LAST_UPDATED_TIME")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private LocalDateTime lastUpdateTime;
+
+    @Column(name = "ID", unique = true)
+    private String identity;
 
     public UUID getUuid() {
         return uuid;
@@ -43,5 +52,27 @@ public class Dispenser {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public LocalDateTime getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(LocalDateTime lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
+
+    @PreUpdate
+    public void onUpdate()
+    {
+       this.setLastUpdateTime(LocalDateTime.now());
     }
 }

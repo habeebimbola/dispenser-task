@@ -27,11 +27,12 @@ public class DispenserServiceImpl implements DispenserService{
 
         Dispenser newDispenser = new Dispenser();
         newDispenser.setFlowVolume(dispenserDto.getFlowVolume());
-        newDispenser.setStatus(Status.close);
+        newDispenser.setStatus(Status.CLOSE);
 
         newDispenser = this.dispenserRepository.save(newDispenser);
 
         dispenserDto.setFlowVolume(newDispenser.getFlowVolume());
+        dispenserDto.setUuid(newDispenser.getUuid());
 
         return dispenserDto;
     }

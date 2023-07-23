@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.util.UUID;
+
 @JsonSerialize
 public class DispenserDto {
 
@@ -13,11 +15,22 @@ public class DispenserDto {
     @Positive(message = "Only Positive Values Accepted For Flow Volume")
     private Double flowVolume;
 
+    @JsonProperty("id")
+    private UUID uuid;
+
     public Double getFlowVolume() {
         return flowVolume;
     }
 
     public void setFlowVolume(Double flowVolume) {
         this.flowVolume = flowVolume;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 }
