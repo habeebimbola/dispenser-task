@@ -33,4 +33,5 @@ public class DispenserDto {
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
+
 }

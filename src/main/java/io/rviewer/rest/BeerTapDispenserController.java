@@ -12,17 +12,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping("beer-tap-dispenser")
 public class BeerTapDispenserController {
-
-    private static Map<Integer, Dispenser> dispenserMap = new HashMap<>();
 
     @Autowired
     private DispenserService dispenserService;
@@ -52,18 +48,27 @@ public class BeerTapDispenserController {
             return ResponseEntity.badRequest().body(DispenserValidatorBuilder.fromBindingErrors(bindingResult));
         }
 
-        if (dispenserStatusDTO.getStatus() == Status.OPEN)
+        Dispenser dispenser = this.dispenserService.getDispenser(dispenserId);
+
+        if( dispenser.getUuid() == null)
         {
-            dispenserMap.put(null,null);
+            return ResponseEntity.notFound().build();
         }
 
-        if (dispenserStatusDTO.getStatus() == Status.CLOSE)
+        if (dispenserStatusDTO.getStatus() == Status.OPEN && dispenser.getStatus() == Status.CLOSE)
         {
-
+            this.dispenserService.updateDispenserStatus(Status.OPEN, dispenser);
         }
+
+        if (dispenserStatusDTO.getStatus() == Status.CLOSE && dispenser.getStatus() == Status.OPEN)
+        {
+            this.dispenserService.updateDispenserStatus(Status.CLOSE, dispenser);
+        }
+
+
         ResponseEntity responseEntity = new ResponseEntity<>(HttpStatus.ACCEPTED);
 
-        return ResponseEntity.accepted().build();
+        return responseEntity;
     }
 
     @GetMapping("/dispenser/{id}/spending")

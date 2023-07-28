@@ -4,15 +4,14 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@Table(name = "DISPENSER_USAGE")
 public class DispenserUsage implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer usageId;
 
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -23,9 +22,12 @@ public class DispenserUsage implements Serializable {
     @Column(name = "CLOSED_AT")
     private LocalDateTime closedAt;
 
-    @Column(name = "DISPENSER_ID")
-    private Integer dispenserId;
+    @Column(name = "TOTAL_USAGE")
+    private Double totalUsage;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DISPENSER_ID", referencedColumnName = "UUID", updatable = true, nullable = false, insertable = true )
+    private Dispenser dispenser;
 
     public Integer getUsageId() {
         return usageId;
@@ -49,5 +51,21 @@ public class DispenserUsage implements Serializable {
 
     public void setClosedAt(LocalDateTime closedAt) {
         this.closedAt = closedAt;
+    }
+
+    public Dispenser getDispenser() {
+        return dispenser;
+    }
+
+    public void setDispenser(Dispenser dispenser) {
+        this.dispenser = dispenser;
+    }
+
+    public Double getTotalUsage() {
+        return totalUsage;
+    }
+
+    public void setTotalUsage(Double totalUsage) {
+        this.totalUsage = totalUsage;
     }
 }

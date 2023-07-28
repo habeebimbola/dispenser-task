@@ -3,11 +3,9 @@ package io.rviewer.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
-@Entity()
+@Entity
 @Table(name = "DISPENSER")
 public class Dispenser {
 
@@ -27,8 +25,6 @@ public class Dispenser {
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDateTime lastUpdateTime;
 
-    @Column(name = "ID", unique = true)
-    private String identity;
 
     public UUID getUuid() {
         return uuid;
@@ -62,17 +58,15 @@ public class Dispenser {
         this.lastUpdateTime = lastUpdateTime;
     }
 
-    public String getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(String identity) {
-        this.identity = identity;
-    }
-
     @PreUpdate
     public void onUpdate()
     {
        this.setLastUpdateTime(LocalDateTime.now());
+    }
+
+    @PrePersist
+    public void onCreate()
+    {
+        this.setLastUpdateTime(LocalDateTime.now());
     }
 }
