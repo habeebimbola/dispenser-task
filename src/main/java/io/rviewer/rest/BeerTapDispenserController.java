@@ -13,9 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 @RequestMapping("beer-tap-dispenser")
 public class BeerTapDispenserController {
@@ -55,14 +52,22 @@ public class BeerTapDispenserController {
             return ResponseEntity.notFound().build();
         }
 
+        Status dtoStatus = dispenserStatusDTO.getStatus();
+
+        if(( dtoStatus == Status.OPEN && dispenser.getStatus() == Status.OPEN) || (dtoStatus == Status.CLOSE && dispenser.getStatus() == Status.CLOSE ))
+        {
+            return ResponseEntity.status(409).body("Dispenser is already Opened/Closed");
+        }
+
         if (dispenserStatusDTO.getStatus() == Status.OPEN && dispenser.getStatus() == Status.CLOSE)
         {
-            this.dispenserService.updateDispenserStatus(Status.OPEN, dispenser);
+            this.dispenserService.updateDispenserStatusAndUsage(dispenserStatusDTO, dispenser);
         }
+
 
         if (dispenserStatusDTO.getStatus() == Status.CLOSE && dispenser.getStatus() == Status.OPEN)
         {
-            this.dispenserService.updateDispenserStatus(Status.CLOSE, dispenser);
+            this.dispenserService.updateDispenserStatusAndUsage(dispenserStatusDTO, dispenser);
         }
 
 

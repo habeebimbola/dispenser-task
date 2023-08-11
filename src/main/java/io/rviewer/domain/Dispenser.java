@@ -1,7 +1,14 @@
 package io.rviewer.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.descriptor.jdbc.JdbcType;
+import org.hibernate.type.descriptor.jdbc.VarcharJdbcType;
+import org.hibernate.usertype.UserType;
 
+import java.sql.JDBCType;
+import java.sql.SQLType;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -10,7 +17,7 @@ import java.util.UUID;
 public class Dispenser {
 
     @Id
-    @Column(name = "UUID")
+    @Column(name = "UUID" )
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
@@ -24,7 +31,6 @@ public class Dispenser {
     @Column(name = "LAST_UPDATED_TIME")
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDateTime lastUpdateTime;
-
 
     public UUID getUuid() {
         return uuid;

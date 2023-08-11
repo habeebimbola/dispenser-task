@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.rviewer.domain.Status;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @JsonSerialize
 public class DispenserStatusDTO {
 
-    @NotNull(message = "Float Volume Must Be Specified")
-    @JsonProperty("float_volume")
-    private Double floatVolume;
+//    @NotNull(message = "Float Volume Must Be Specified")
+//    @JsonProperty("float_volume")
+//    private Double floatVolume;
 
     @NotNull(message = "Dispenser Status Must Not Be Null")
     @JsonProperty("status")
@@ -19,13 +20,13 @@ public class DispenserStatusDTO {
     @JsonProperty("updated_at")
     private String updatedTime;
 
-    public Double getFloatVolume() {
-        return floatVolume;
-    }
-
-    public void setFloatVolume(Double floatVolume) {
-        this.floatVolume = floatVolume;
-    }
+//    public Double getFloatVolume() {
+//        return floatVolume;
+//    }
+//
+//    public void setFloatVolume(Double floatVolume) {
+//        this.floatVolume = floatVolume;
+//    }
 
     public Status getStatus() {
         return Status;

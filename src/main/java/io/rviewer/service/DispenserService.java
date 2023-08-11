@@ -1,8 +1,8 @@
 package io.rviewer.service;
 
 import io.rviewer.domain.Dispenser;
-import io.rviewer.domain.Status;
 import io.rviewer.domain.dto.DispenserDto;
+import io.rviewer.domain.dto.DispenserStatusDTO;
 
 import java.util.UUID;
 
@@ -14,5 +14,5 @@ public interface DispenserService {
 
     Dispenser getDispenser(String dispenserId);
 
-    void updateDispenserStatus(Status status, Dispenser dispenser);
+    void updateDispenserStatusAndUsage(DispenserStatusDTO statusDTO, Dispenser dispenser);
 }
