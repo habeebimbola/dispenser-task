@@ -8,10 +8,10 @@ services:
       context: .
     ports:
       - "9000:9000"
-    environment:
-      - spring.datasource.url=jdbc:mysql://dispenser_db:3306/dispenser
-      - MYSQL_USERNAME=dispenser
-      - MYSQL_PASSWORD=dispenser
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://dispenser_db:3306/dispenser?serverTimezone=UTC
+##      - SPRING_DATASOURCE_USERNAME=dispenser
+#      - SPRING_DATASOURCE_PASSWORD=dispenser
 #    networks:
 #      dispenser-network:
 
@@ -27,7 +27,7 @@ services:
         - MYSQL_PASSWORD=dispenser
         - MYSQL_USER=dispenser
 #        - MYSQL_ROOT_HOST='%'
-#        - MYSQL_HOST=dispenser_db
+        - MYSQL_HOST=dispenser_db
     volumes:
       - dispenser_api_data:/var/docker/mysql
 #    networks:
